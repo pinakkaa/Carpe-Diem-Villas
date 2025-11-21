@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floor Plan Section</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .floorplan-container {
+            width: 100%;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 60px 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .floorplan-title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 50px;
+            letter-spacing: 2px;
+        }
+
+        .floorplan-buttons-wrapper {
+            max-width: 1400px;
+            margin: 0 auto 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .floorplan-btn {
+            background: #34495e;
+            color: #ffffff;
+            border: none;
+            padding: 18px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(52, 73, 94, 0.3);
+        }
+
+        .floorplan-btn:hover {
+            background: #2c3e50;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(52, 73, 94, 0.4);
+        }
+
+        .floorplan-btn.fp-active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.5);
+        }
+
+        .floorplan-viewer {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .floorplan-slider-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .floorplan-slides-wrapper {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .floorplan-slide {
+            min-width: 100%;
+            flex-shrink: 0;
+        }
+
+        .floorplan-slide img {
+            width: 50%;
+            height: 250px;
+            display: block;
+            border-radius: 15px;
+        }
+
+        .floorplan-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 24px;
+            color: #34495e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+
+        .floorplan-nav-btn:hover {
+            background: #ffffff;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .floorplan-prev {
+            left: 20px;
+        }
+
+        .floorplan-next {
+            right: 20px;
+        }
+
+        .floorplan-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .floorplan-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #bdc3c7;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            padding: 0;
+        }
+
+        .floorplan-dot.fp-active {
+            background: #667eea;
+            width: 30px;
+            border-radius: 6px;
+        }
+
+        .floorplan-info {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+
+        .floorplan-info h3 {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .floorplan-info p {
+            font-size: 16px;
+            color: #7f8c8d;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .floorplan-container {
+                padding: 40px 15px;
+            }
+
+            .floorplan-title {
+                font-size: 28px;
+                margin-bottom: 30px;
+            }
+
+            .floorplan-buttons-wrapper {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+                padding: 0 10px;
+            }
+
+            .floorplan-btn {
+                padding: 14px 20px;
+                font-size: 13px;
+                letter-spacing: 0.5px;
+            }
+
+            .floorplan-viewer {
+                padding: 20px;
+                border-radius: 15px;
+            }
+
+            .floorplan-nav-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+
+            .floorplan-prev {
+                left: 10px;
+            }
+
+            .floorplan-next {
+                right: 10px;
+            }
+
+            .floorplan-info h3 {
+                font-size: 20px;
+            }
+
+            .floorplan-info p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .floorplan-buttons-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .floorplan-btn {
+                padding: 16px 20px;
+                font-size: 14px;
+            }
+
+            .floorplan-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="floorplan-container">
+        <h2 class="floorplan-title">FLOOR PLAN</h2>
+        
+        <div class="floorplan-buttons-wrapper">
+            <button class="floorplan-btn fp-active" data-fp-plan="east-30x50">EAST FACING VILLA 30' X 50'</button>
+            <button class="floorplan-btn" data-fp-plan="west-30x40">WEST FACING VILLA 30' X 40'</button>
+            <button class="floorplan-btn" data-fp-plan="north-30x50">NORTH FACING VILLA 30' X 50'</button>
+            <button class="floorplan-btn" data-fp-plan="south-30x50">SOUTH FACING VILLA 30' X 50'</button>
+            <button class="floorplan-btn" data-fp-plan="east-40x40">EAST FACING VILLA 40' X 40'</button>
+            <button class="floorplan-btn" data-fp-plan="west-40x40">WEST FACING VILLA 40' X 40'</button>
+            <button class="floorplan-btn" data-fp-plan="south-40x50">SOUTH FACING VILLA 40' X 50'</button>
+            <button class="floorplan-btn" data-fp-plan="east-30x40">EAST FACING VILLA 30' X 40'</button>
+        </div>
+
+        <div class="floorplan-viewer">
+            <div class="floorplan-slider-container">
+                <div class="floorplan-slides-wrapper" id="fpSlidesWrapper">
+                    <!-- Images will be loaded dynamically -->
+                </div>
+                <button class="floorplan-nav-btn floorplan-prev" id="fpPrevBtn">‹</button>
+                <button class="floorplan-nav-btn floorplan-next" id="fpNextBtn">›</button>
+            </div>
+            
+            <div class="floorplan-dots" id="fpDotsContainer"></div>
+            
+            <div class="floorplan-info">
+                <h3 id="fpPlanName">EAST FACING VILLA 30' X 50'</h3>
+                <p id="fpPlanDesc">View detailed floor plans for this villa configuration</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Floor Plan Data - Replace these URLs with your actual image URLs
+        const floorPlanData = {
+            'east-30x50': {
+                name: "EAST FACING VILLA 30' X 50'",
+                desc: "View detailed floor plans for this villa configuration",
+                images: [
+                    './Images/EAST-VILLA-NIGHT_VIEW.jpg',
+                    './Images/EAST-VILLA-NIGHT_VIEW.jpg',
+                    './Images/EAST-VILLA-NIGHT_VIEW.jpg',
+                    './Images/EAST-VILLA-VIEW.jpg'
+                ]
+            },
+            'west-30x40': {
+                name: "WEST FACING VILLA 30' X 40'",
+                desc: "View detailed floor plans for this villa configuration",
+                images: [
+                    './Images/EAST-VILLA-NIGHT_VIEW.jpg',
+                    './Images/EAST-VILLA-NIGHT_VIEW.jpg',
+                    './Images/EAST-VILLA-NIGHT_VIEW.jpg',
+                    './Images/EAST-VILLA-VIEW.jpg'
+                ]
+            },
+            'north-30x50': {
+                name: "NORTH FACING VILLA 30' X 50'",
+                desc: "View detailed floor plans for this villa configuration",
+                images: [
+                    'https://via.placeholder.com/1200x800/667eea/ffffff?text=North+30x50+Plan+1',
+                    'https://via.placeholder.com/1200x800/764ba2/ffffff?text=North+30x50+Plan+2'
+                ]
+            },
+            'south-30x50': {
+                name: "SOUTH FACING VILLA 30' X 50'",
+                desc: "View detailed floor plans for this villa configuration",
+                images: [
+                    'https://via.placeholder.com/1200x800/667eea/ffffff?text=South+30x50+Plan+1',
+                    'https://via.placeholder.com/1200x800/764ba2/ffffff?text=South+30x50+Plan+2'
+                ]
+            },
+            'east-40x40': {
+                name: "EAST FACING VILLA 40' X 40'",
+                desc: "View detailed floor plans for this villa configuration",
+                images: [
+                    'https://via.placeholder.com/1200x800/667eea/ffffff?text=East+40x40+Plan+1',
+                    'https://via.placeholder.com/1200x800/764ba2/ffffff?text=East+40x40+Plan+2'
+                ]
+            },
+            'west-40x40': {
+                name: "WEST FACING VILLA 40' X 40'",
+                desc: "View detailed floor plans for this villa configuration",
+                images: [
+                    'https://via.placeholder.com/1200x800/667eea/ffffff?text=West+40x40+Plan+1',
+                    'https://via.placeholder.com/1200x800/764ba2/ffffff?text=West+40x40+Plan+2'
+                ]
+            },
+            'south-40x50': {
+                name: "SOUTH FACING VILLA 40' X 50'",
+                desc: "View detailed floor plans for this villa configuration",
+                images: [
+                    'https://via.placeholder.com/1200x800/667eea/ffffff?text=South+40x50+Plan+1',
+                    'https://via.placeholder.com/1200x800/764ba2/ffffff?text=South+40x50+Plan+2'
+                ]
+            },
+            'east-30x40': {
+                name: "EAST FACING VILLA 30' X 40'",
+                desc: "View detailed floor plans for this villa configuration",
+                images: [
+                    'https://via.placeholder.com/1200x800/667eea/ffffff?text=East+30x40+Plan+1',
+                    'https://via.placeholder.com/1200x800/764ba2/ffffff?text=East+30x40+Plan+2'
+                ]
+            }
+        };
+
+        // Floor Plan Manager Class
+        class FloorPlanManager {
+            constructor() {
+                this.currentPlan = 'east-30x50';
+                this.currentSlide = 0;
+                this.slidesWrapper = document.getElementById('fpSlidesWrapper');
+                this.dotsContainer = document.getElementById('fpDotsContainer');
+                this.prevBtn = document.getElementById('fpPrevBtn');
+                this.nextBtn = document.getElementById('fpNextBtn');
+                this.planName = document.getElementById('fpPlanName');
+                this.planDesc = document.getElementById('fpPlanDesc');
+                this.buttons = document.querySelectorAll('.floorplan-btn');
+                
+                this.init();
+            }
+
+            init() {
+                this.loadPlan(this.currentPlan);
+                this.attachEventListeners();
+            }
+
+            attachEventListeners() {
+                // Button clicks
+                this.buttons.forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const planKey = e.target.getAttribute('data-fp-plan');
+                        this.switchPlan(planKey);
+                    });
+                });
+
+                // Navigation buttons
+                this.prevBtn.addEventListener('click', () => this.prevSlide());
+                this.nextBtn.addEventListener('click', () => this.nextSlide());
+
+                // Touch events for mobile swipe
+                let touchStartX = 0;
+                let touchEndX = 0;
+
+                this.slidesWrapper.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                });
+
+                this.slidesWrapper.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    this.handleSwipe(touchStartX, touchEndX);
+                });
+            }
+
+            handleSwipe(startX, endX) {
+                const diff = startX - endX;
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0) {
+                        this.nextSlide();
+                    } else {
+                        this.prevSlide();
+                    }
+                }
+            }
+
+            switchPlan(planKey) {
+                this.currentPlan = planKey;
+                this.currentSlide = 0;
+                
+                // Update active button
+                this.buttons.forEach(btn => btn.classList.remove('fp-active'));
+                document.querySelector(`[data-fp-plan="${planKey}"]`).classList.add('fp-active');
+                
+                this.loadPlan(planKey);
+            }
+
+            loadPlan(planKey) {
+                const plan = floorPlanData[planKey];
+                
+                // Update info
+                this.planName.textContent = plan.name;
+                this.planDesc.textContent = plan.desc;
+                
+                // Clear and load slides
+                this.slidesWrapper.innerHTML = '';
+                plan.images.forEach(imgUrl => {
+                    const slide = document.createElement('div');
+                    slide.className = 'floorplan-slide';
+                    slide.innerHTML = `<img src="${imgUrl}" alt="${plan.name}">`;
+                    this.slidesWrapper.appendChild(slide);
+                });
+                
+                // Create dots
+                this.createDots(plan.images.length);
+                
+                // Reset to first slide
+                this.goToSlide(0);
+            }
+
+            createDots(count) {
+                this.dotsContainer.innerHTML = '';
+                for (let i = 0; i < count; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = 'floorplan-dot';
+                    if (i === 0) dot.classList.add('fp-active');
+                    dot.addEventListener('click', () => this.goToSlide(i));
+                    this.dotsContainer.appendChild(dot);
+                }
+            }
+
+            goToSlide(index) {
+                const slides = this.slidesWrapper.querySelectorAll('.floorplan-slide');
+                this.currentSlide = index;
+                this.slidesWrapper.style.transform = `translateX(-${index * 100}%)`;
+                
+                // Update dots
+                document.querySelectorAll('.floorplan-dot').forEach((dot, i) => {
+                    dot.classList.toggle('fp-active', i === index);
+                });
+            }
+
+            nextSlide() {
+                const slides = this.slidesWrapper.querySelectorAll('.floorplan-slide');
+                this.currentSlide = (this.currentSlide + 1) % slides.length;
+                this.goToSlide(this.currentSlide);
+            }
+
+            prevSlide() {
+                const slides = this.slidesWrapper.querySelectorAll('.floorplan-slide');
+                this.currentSlide = (this.currentSlide - 1 + slides.length) % slides.length;
+                this.goToSlide(this.currentSlide);
+            }
+        }
+
+        // Initialize Floor Plan Manager
+        document.addEventListener('DOMContentLoaded', () => {
+            new FloorPlanManager();
+        });
+    </script>
+</body>
+</html>
