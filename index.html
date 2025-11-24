@@ -236,6 +236,14 @@
 }
 .what-we-offer-wrapper{
    padding: 0 0 0 85px;
+  list-style: none;
+  /* padding-left: 0; */
+}
+.what-we-offer-wrapper li {
+  position: relative;
+  padding-left: 30px; /* space for the tick */
+  margin-bottom: 8px;
+  font-weight: bold;
 }
 .sub-text{
    font-size: 1rem;
@@ -690,12 +698,12 @@
       }
 
       .floorplan-buttons-wrapper {
-          max-width: 1280px;
-          margin: 0 auto 50px;
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          gap: 15px;
-          padding: 0 20px;
+         max-width: 1080px;
+    margin: 0 auto 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 0 20px;
       }
 
       .floorplan-btn {
@@ -750,8 +758,11 @@
 
       .floorplan-image-wrapper {
           flex: 1;
-          border: 2px solid #000000;
+          border: 1px solid #000000;
           overflow: hidden;
+          display: flex;
+          justify-content: center;
+          align-items: center;
       }
 
       .floorplan-image {
@@ -996,6 +1007,41 @@
     font-size: 14px;
   }
 }
+.what-we-offer-wrapper li::before {
+  content: "✔";
+  color: #00a651; /* green color */
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.project-highlights-wrapper {
+  list-style: none;
+  padding-left: 0;
+}
+
+.project-highlights-wrapper li {
+  position: relative;
+  padding-left: 25px; 
+  margin-bottom: 2px;
+  font-weight: 500;
+}
+
+.project-highlights-wrapper li::before {
+  content: "✔";
+  color: #00a651; 
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+
+.card-content-wrapper{
+   height: 390px;
+   border-radius: 40px;
+}
 
   </style>
 <script bis_use="true" type="text/javascript" charset="utf-8" data-bis-config="[&quot;facebook.com/&quot;,&quot;twitter.com/&quot;,&quot;youtube-nocookie.com/embed/&quot;,&quot;//vk.com/&quot;,&quot;//www.vk.com/&quot;,&quot;linkedin.com/&quot;,&quot;//www.linkedin.com/&quot;,&quot;//instagram.com/&quot;,&quot;//www.instagram.com/&quot;,&quot;//www.google.com/recaptcha/api2/&quot;,&quot;//hangouts.google.com/webchat/&quot;,&quot;//www.google.com/calendar/&quot;,&quot;//www.google.com/maps/embed&quot;,&quot;spotify.com/&quot;,&quot;soundcloud.com/&quot;,&quot;//player.vimeo.com/&quot;,&quot;//disqus.com/&quot;,&quot;//tgwidget.com/&quot;,&quot;//js.driftt.com/&quot;,&quot;friends2follow.com&quot;,&quot;/widget&quot;,&quot;login&quot;,&quot;//video.bigmir.net/&quot;,&quot;blogger.com&quot;,&quot;//smartlock.google.com/&quot;,&quot;//keep.google.com/&quot;,&quot;/web.tolstoycomments.com/&quot;,&quot;moz-extension://&quot;,&quot;chrome-extension://&quot;,&quot;/auth/&quot;,&quot;//analytics.google.com/&quot;,&quot;adclarity.com&quot;,&quot;paddle.com/checkout&quot;,&quot;hcaptcha.com&quot;,&quot;recaptcha.net&quot;,&quot;2captcha.com&quot;,&quot;accounts.google.com&quot;,&quot;www.google.com/shopping/customerreviews&quot;,&quot;buy.tinypass.com&quot;,&quot;gstatic.com&quot;,&quot;secureir.ebaystatic.com&quot;,&quot;docs.google.com&quot;,&quot;contacts.google.com&quot;,&quot;github.com&quot;,&quot;mail.google.com&quot;,&quot;chat.google.com&quot;,&quot;audio.xpleer.com&quot;,&quot;keepa.com&quot;,&quot;static.xx.fbcdn.net&quot;,&quot;sas.selleramp.com&quot;,&quot;1plus1.video&quot;,&quot;console.googletagservices.com&quot;,&quot;//lnkd.demdex.net/&quot;,&quot;//radar.cedexis.com/&quot;,&quot;//li.protechts.net/&quot;,&quot;challenges.cloudflare.com/&quot;,&quot;ogs.google.com&quot;]" src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/executors/traffic.js"></script></head>
@@ -1095,6 +1141,55 @@
    </div>
 
 
+      <!-- PROJECT OVERVIEW SECTION -->
+<section class="project-overview">
+   <div class="po-container">
+     <!-- <h2 class="po-title">Project Overview</h2> -->
+     
+     <h2 class="heading text-dark text-center"> Project Overview</h2>
+ 
+     <div class="po-grid">
+       <!-- Item 1 -->
+       <div class="po-item">
+          <div class="po-icon">📜</div>
+         <p class="po-text">BMRDA &amp; RERA Approved</p>
+       </div>
+ 
+       <!-- Item 2 -->
+       <div class="po-item">
+          <div class="po-icon">🏡</div>
+         <p class="po-text">8 Acres Villa Gated Community</p>
+       </div>
+ 
+       <!-- Item 3 -->
+       <div class="po-item">
+          <div class="po-icon">✨</div>
+         <p class="po-text">123 Luxury Independent Villas</p>
+       </div>
+ 
+       <!-- Item 4 -->
+       <div class="po-item">
+          <div class="po-icon">🌿</div>
+         <p class="po-text">65% Open Spaces</p>
+       </div>
+ 
+       <!-- Item 5 -->
+       <div class="po-item">
+          <div class="po-icon">📐</div>
+         <p class="po-text">2420 to 5900 Sq Ft Built-up Area</p>
+       </div>
+ 
+       <!-- Item 6 -->
+       <div class="po-item">
+          <div class="po-icon">🏘️</div>
+         <p class="po-text">4 BHK Triplex Villas</p>
+       </div>
+     </div>
+   </div>
+</section>
+
+
+
 
    <section class="py-4  bg-main lr-sec" id="philosophy">
       <div class="container-fluid px-0" bis_skin_checked="1">
@@ -1171,7 +1266,7 @@
                      the central story here is one of openness 
                      and togetherness            
                   </p> -->
-                  <ul>
+                  <ul class="project-highlights-wrapper">
                      <li>Vastu Compliant</li>
                      <li>24/7 Pneumatic System for Water Supply</li>
                      <li>40ft & 30ft Wide CC Roads With pockets of Pattern Cement Tiles/pavers</li>
@@ -1235,8 +1330,8 @@
 
             <div class="col-md-4 col-12" bis_skin_checked="1">
                <div class="ins-sec px-2 px-md-3 " bis_skin_checked="1">
-                  <img class="lazy img-fluid rounded-bottom rounded-5 entered exited" width="362px" height="198px" src="./Designed-aroun.webp">
-                  <div class="details  bg-white p-3" bis_skin_checked="1">
+                  <img class="lazy img-fluid rounded-bottom rounded-5 entered exited" width="100%" height="198px" src="./Designed-aroun.webp">
+                  <div class="details  bg-white p-3 card-content-wrapper" bis_skin_checked="1">
                      <h4 class="text-dark text-mobile fw-lighter pb-3 text-center">WHERE BOUNDARIES FADE, AND SOUL AWAKENS</h4>
                      <p class="text-justify">Daylight bursts with promise, unrestrained by walls or lines. Morning inspires quiet wonder; evening weaves golden memories. <br>
                         Life here is a poem-shaped by choice, open to joy and rest. Longing alone guides you, each day a fresh invitation. Welcome to where belonging is effortless, the Carpe Diem community experience.
@@ -1248,14 +1343,14 @@
             <div class="col-md-4 col-12 d-md-block d-none" bis_skin_checked="1">
                <div class="ins-sec px-2 px-md-3" bis_skin_checked="1">
 
-                  <div class="details  bg-white p-3" bis_skin_checked="1">
+                  <div class="details  bg-white p-3 card-content-wrapper" bis_skin_checked="1">
                      <h4 class="text-dark text-mobile fw-lighter pb-3 text-center">FOREVER IN A COMMUNITY ROOTED IN NATURE
                      </h4>
                      <p class="text-justify">In a world drifting farther from the earth, Carpe Diem brings you closer-forever. Set across 14 acres of consciously crafted green, this villa community is designed to live in harmony with the land. <br> Every turn is a breath of fresh air, every home a quiet return to balance, beauty, and belonging. Here, nature isn't a view— it's your everyday backdrop, your rhythm, your refuge.
                        <br> Because you were never meant to be far away from it.
                         </p>
                   </div>
-                  <img src="./Limitless-nature.webp" class="img-fluid  rounded-top rounded-5" width="362px" height="198px">
+                  <img src="./Limitless-nature.webp" class="img-fluid  rounded-top rounded-5" width="100%" height="198px">
                </div>
             </div>
 
@@ -1277,8 +1372,8 @@
 
             <div class="col-md-4 col-12" bis_skin_checked="1">
                <div class="ins-sec px-2 px-md-3" bis_skin_checked="1">
-                  <img src="./Blend-in-to-feel-the-exquisiteness.webp" class="img-fluid rounded-bottom rounded-5" width="362px" height="198px">
-                  <div class="details  bg-white p-3" bis_skin_checked="1">
+                  <img src="./Blend-in-to-feel-the-exquisiteness.webp" class="img-fluid rounded-bottom rounded-5" width="100%" height="198px">
+                  <div class="details  bg-white p-3 card-content-wrapper" bis_skin_checked="1">
                      <h4 class="text-dark text-mobile  fw-lighter pb-3 text-center">FOREVER IN A SPACE THAT SETS YOU FREE
                      </h4>
                      <p class="text-justify"> Independent villas crafted for those who value calm over crowds. Every home opens to green views, soft light, and effortless privacy.
@@ -1302,52 +1397,7 @@
 
 
 
-   <!-- PROJECT OVERVIEW SECTION -->
-<section class="project-overview">
-   <div class="po-container">
-     <!-- <h2 class="po-title">Project Overview</h2> -->
-     
-     <h2 class="heading text-dark text-center"> Project Overview</h2>
- 
-     <div class="po-grid">
-       <!-- Item 1 -->
-       <div class="po-item">
-          <div class="po-icon">📜</div>
-         <p class="po-text">BMRDA &amp; RERA Approved</p>
-       </div>
- 
-       <!-- Item 2 -->
-       <div class="po-item">
-          <div class="po-icon">🏡</div>
-         <p class="po-text">8 Acres Villa Gated Community</p>
-       </div>
- 
-       <!-- Item 3 -->
-       <div class="po-item">
-          <div class="po-icon">✨</div>
-         <p class="po-text">123 Luxury Independent Villas</p>
-       </div>
- 
-       <!-- Item 4 -->
-       <div class="po-item">
-          <div class="po-icon">🌿</div>
-         <p class="po-text">65% Open Spaces</p>
-       </div>
- 
-       <!-- Item 5 -->
-       <div class="po-item">
-          <div class="po-icon">📐</div>
-         <p class="po-text">2420 to 5900 Sq Ft Built-up Area</p>
-       </div>
- 
-       <!-- Item 6 -->
-       <div class="po-item">
-          <div class="po-icon">🏘️</div>
-         <p class="po-text">4 BHK Triplex Villas</p>
-       </div>
-     </div>
-   </div>
- </section>
+
  
 
 
@@ -2117,14 +2167,14 @@
       <h2 class="heading pb-2 text-center">FLOOR PLAN</h2>
       
       <div class="floorplan-buttons-wrapper">
-          <button class="floorplan-btn fp-active" data-fp-plan="east-30x50">EAST FACING VILLA 30' X 50'</button>
-          <button class="floorplan-btn" data-fp-plan="west-30x40">WEST FACING VILLA 30' X 40'</button>
-          <button class="floorplan-btn" data-fp-plan="north-30x50">NORTH FACING VILLA 30' X 50'</button>
-          <button class="floorplan-btn" data-fp-plan="south-30x50">SOUTH FACING VILLA 30' X 50'</button>
-          <button class="floorplan-btn" data-fp-plan="east-40x40">EAST FACING VILLA 40' X 40'</button>
-          <button class="floorplan-btn" data-fp-plan="west-40x40">WEST FACING VILLA 40' X 40'</button>
-          <button class="floorplan-btn" data-fp-plan="south-40x50">SOUTH FACING VILLA 40' X 50'</button>
-          <button class="floorplan-btn" data-fp-plan="east-30x40">EAST FACING VILLA 30' X 40'</button>
+          <button class="floorplan-btn fp-active" data-fp-plan="east-30x50">EAST FACING VILLA <br> 30' X 50'</button>
+          <button class="floorplan-btn" data-fp-plan="west-30x40">WEST FACING VILLA <br> 30' X 40'</button>
+          <button class="floorplan-btn" data-fp-plan="north-30x50">NORTH FACING VILLA <br> 30' X 50'</button>
+          <button class="floorplan-btn" data-fp-plan="south-30x50">SOUTH FACING VILLA <br> 30' X 50'</button>
+          <button class="floorplan-btn" data-fp-plan="east-40x40">EAST FACING VILLA <br> 40' X 40'</button>
+          <button class="floorplan-btn" data-fp-plan="west-40x40">WEST FACING VILLA <br> 40' X 40'</button>
+          <button class="floorplan-btn" data-fp-plan="south-40x50">SOUTH FACING VILLA <br> 40' X 50'</button>
+          <button class="floorplan-btn" data-fp-plan="east-30x40">EAST FACING VILLA <br> 30' X 40'</button>
       </div>
 
       <div class="floorplan-viewer">
@@ -3181,8 +3231,8 @@ $(document).ready(function () {
    // Floor Plan Data - Replace these URLs with your actual image URLs
    const floorPlanData = {
        'east-30x50': {
-           name: "EAST FACING VILLA 30' X 50'",
-           desc: "View detailed floor plans for this villa configuration",
+         //   name: "EAST FACING VILLA 30' X 50'",
+         //   desc: "View detailed floor plans for this villa configuration",
            images: [
                './Images/EAST-VILLA-NIGHT_VIEW.jpg',
                './Images/EAST-VILLA-NIGHT_VIEW.jpg',
@@ -3191,8 +3241,8 @@ $(document).ready(function () {
            ]
        },
        'west-30x40': {
-           name: "WEST FACING VILLA 30' X 40'",
-           desc: "View detailed floor plans for this villa configuration",
+         //   name: "WEST FACING VILLA 30' X 40'",
+         //   desc: "View detailed floor plans for this villa configuration",
            images: [
                './Images/NORTH_VILLA_NIGHT_VIEW.jpg',
                './Images/NORTH_VILLA_NIGHT_VIEW.jpg',
@@ -3201,8 +3251,8 @@ $(document).ready(function () {
            ]
        },
        'north-30x50': {
-           name: "NORTH FACING VILLA 30' X 50'",
-           desc: "View detailed floor plans for this villa configuration",
+         //   name: "NORTH FACING VILLA 30' X 50'",
+         //   desc: "View detailed floor plans for this villa configuration",
            images: [
                './Images/SOUTH_VILLA-NIGHT_VIEW.jpg',
                './Images/SOUTH_VILLA-NIGHT_VIEW.jpg',
@@ -3211,8 +3261,8 @@ $(document).ready(function () {
            ]
        },
        'south-30x50': {
-           name: "SOUTH FACING VILLA 30' X 50'",
-           desc: "View detailed floor plans for this villa configuration",
+         //   name: "SOUTH FACING VILLA 30' X 50'",
+         //   desc: "View detailed floor plans for this villa configuration",
            images: [
                './Images/WEST_VILLA-NIGHT_VIEW.jpg',
                './Images/WEST_VILLA-NIGHT_VIEW.jpg',
@@ -3221,8 +3271,8 @@ $(document).ready(function () {
            ]
        },
        'east-40x40': {
-           name: "EAST FACING VILLA 40' X 40'",
-           desc: "View detailed floor plans for this villa configuration",
+         //   name: "EAST FACING VILLA 40' X 40'",
+         //   desc: "View detailed floor plans for this villa configuration",
            images: [
                './Images/WEST_VILLA-NIGHT_VIEW.jpg',
                './Images/WEST_VILLA-NIGHT_VIEW.jpg',
@@ -3231,8 +3281,8 @@ $(document).ready(function () {
            ]
        },
        'west-40x40': {
-           name: "WEST FACING VILLA 40' X 40'",
-           desc: "View detailed floor plans for this villa configuration",
+         //   name: "WEST FACING VILLA 40' X 40'",
+         //   desc: "View detailed floor plans for this villa configuration",
            images: [
                './Images/WEST_VILLA-NIGHT_VIEW.jpg',
                './Images/WEST_VILLA-NIGHT_VIEW.jpg',
@@ -3241,8 +3291,8 @@ $(document).ready(function () {
            ]
        },
        'south-40x50': {
-           name: "SOUTH FACING VILLA 40' X 50'",
-           desc: "View detailed floor plans for this villa configuration",
+         //   name: "SOUTH FACING VILLA 40' X 50'",
+         //   desc: "View detailed floor plans for this villa configuration",
            images: [
                './Images/WEST_VILLA-NIGHT_VIEW.jpg',
                './Images/WEST_VILLA-NIGHT_VIEW.jpg',
@@ -3251,8 +3301,8 @@ $(document).ready(function () {
            ]
        },
        'east-30x40': {
-           name: "EAST FACING VILLA 30' X 40'",
-           desc: "View detailed floor plans for this villa configuration",
+         //   name: "EAST FACING VILLA 30' X 40'",
+         //   desc: "View detailed floor plans for this villa configuration",
            images: [
                './Images/WEST_VILLA-NIGHT_VIEW.jpg',
                './Images/WEST_VILLA-NIGHT_VIEW.jpg',
