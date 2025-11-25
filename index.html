@@ -1066,6 +1066,79 @@
    color: #000;
 }
 
+/* MOBILE RESPONSIVE FIX */
+@media (max-width: 768px) {
+
+.po-grid {
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  gap: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.po-item {
+  width: 48%;           /* 2 cards per row */
+  min-height: 130px;
+  padding: 14px 12px;
+}
+
+.po-icon {
+  width: 38px;
+  height: 38px;
+  font-size: 18px;
+}
+
+.overview-icons {
+  width: 22px;
+  height: 22px;
+}
+
+.po-text {
+  font-size: 12px;
+  margin-top: 1rem;
+}
+.col-md-33{
+   width: 100%;
+}
+.logo{
+   max-width: 60px;
+}
+.mobi-res-div{
+   padding: 0 1rem;
+}
+body{
+   width: 100vw;
+   overflow-x: hidden;
+}
+
+}
+
+/* VERY SMALL DEVICES (Phones under 420px) */
+@media (max-width: 420px) {
+
+.po-item {
+  width: 100%;          /* 1 card per row */
+}
+
+.po-text {
+  font-size: 13px;
+}
+
+.po-icon {
+  width: 36px;
+  height: 36px;
+}
+
+.overview-icons {
+  width: 20px;
+  height: 20px;
+}
+}
+
+
   </style>
 <script bis_use="true" type="text/javascript" charset="utf-8" data-bis-config="[&quot;facebook.com/&quot;,&quot;twitter.com/&quot;,&quot;youtube-nocookie.com/embed/&quot;,&quot;//vk.com/&quot;,&quot;//www.vk.com/&quot;,&quot;linkedin.com/&quot;,&quot;//www.linkedin.com/&quot;,&quot;//instagram.com/&quot;,&quot;//www.instagram.com/&quot;,&quot;//www.google.com/recaptcha/api2/&quot;,&quot;//hangouts.google.com/webchat/&quot;,&quot;//www.google.com/calendar/&quot;,&quot;//www.google.com/maps/embed&quot;,&quot;spotify.com/&quot;,&quot;soundcloud.com/&quot;,&quot;//player.vimeo.com/&quot;,&quot;//disqus.com/&quot;,&quot;//tgwidget.com/&quot;,&quot;//js.driftt.com/&quot;,&quot;friends2follow.com&quot;,&quot;/widget&quot;,&quot;login&quot;,&quot;//video.bigmir.net/&quot;,&quot;blogger.com&quot;,&quot;//smartlock.google.com/&quot;,&quot;//keep.google.com/&quot;,&quot;/web.tolstoycomments.com/&quot;,&quot;moz-extension://&quot;,&quot;chrome-extension://&quot;,&quot;/auth/&quot;,&quot;//analytics.google.com/&quot;,&quot;adclarity.com&quot;,&quot;paddle.com/checkout&quot;,&quot;hcaptcha.com&quot;,&quot;recaptcha.net&quot;,&quot;2captcha.com&quot;,&quot;accounts.google.com&quot;,&quot;www.google.com/shopping/customerreviews&quot;,&quot;buy.tinypass.com&quot;,&quot;gstatic.com&quot;,&quot;secureir.ebaystatic.com&quot;,&quot;docs.google.com&quot;,&quot;contacts.google.com&quot;,&quot;github.com&quot;,&quot;mail.google.com&quot;,&quot;chat.google.com&quot;,&quot;audio.xpleer.com&quot;,&quot;keepa.com&quot;,&quot;static.xx.fbcdn.net&quot;,&quot;sas.selleramp.com&quot;,&quot;1plus1.video&quot;,&quot;console.googletagservices.com&quot;,&quot;//lnkd.demdex.net/&quot;,&quot;//radar.cedexis.com/&quot;,&quot;//li.protechts.net/&quot;,&quot;challenges.cloudflare.com/&quot;,&quot;ogs.google.com&quot;]" src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/executors/traffic.js"></script></head>
 
@@ -1229,7 +1302,7 @@
    <section class="py-4  bg-main lr-sec" id="philosophy">
       <div class="container-fluid px-0" bis_skin_checked="1">
 
-         <div class=" row   d-flex align-items-center g-0 pt-md-4" bis_skin_checked="1">
+         <div class=" row   d-flex align-items-center g-0 pt-md-4 mobi-res-div" bis_skin_checked="1">
             <div class="col-md-5 col-12 bg-white" bis_skin_checked="1">
                <div class="px-3 pad-tb banner-details  left-100 bg-white round-left" bis_skin_checked="1">
                   <h1 class="d-none">Luxury Farm Houses Bangalore</h1>
@@ -1259,7 +1332,7 @@
    </section>
 
 
-   <section class="py-4  bg-main lr-sec" >
+   <section class="py-4  bg-main lr-sec mobi-res-div" >
       <div class="container-fluid  px-0" bis_skin_checked="1">
 
          <div class=" row  py-3 d-flex align-items-center g-0 pt-md-4" bis_skin_checked="1">
@@ -1285,7 +1358,7 @@
 
 
 
-   <section class="py-4  bg-main lr-sec" id="philosophy">
+   <section class="py-4  bg-main lr-sec mobi-res-div" id="philosophy">
       <div class="container-fluid px-0" bis_skin_checked="1">
 
          <div class=" row   d-flex align-items-center g-0 pt-md-4" bis_skin_checked="1">
